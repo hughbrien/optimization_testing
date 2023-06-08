@@ -6,8 +6,8 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: optimization-single-application
   name: komodor-python-script
+  namespace: optimization-single-application
 data:
   python-script: |-
     import time
@@ -39,7 +39,7 @@ data:
         raise Exception("Can't perform the requested task - authentication error")
 
     def prealloc_array_by_appending():
-        size = 1000001
+        size = 30000000
         result = []
         for i in range(size):
             item_value = "Hugh Brien LARGE BLOCKS OF TEXT THAT 444332222 MAY NOT BE OPTIMIZED xmcmcmcjeodkaadalsdfjiri594844321223449686857474747 " + str(i)
@@ -60,19 +60,19 @@ kind: Deployment
 metadata:
   namespace: optimization-single-application
   annotations:
-    app: simple-application
+    app: simple-large-mem-application
   labels:
-    app: simple-application
-  name: simple-application
+    app: simple-large-mem-application
+  name: simple-large-mem-application
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-application
+      app: simple-large-mem-application
   template:
     metadata:
       labels:
-        app: simple-application
+        app: simple-large-mem-application
     spec:
       containers:
       - env:
@@ -87,10 +87,10 @@ spec:
         resources:
           requests:
             cpu: 500m
-            memory: "256Mi"
-          limits:
-            cpu: 1000m
             memory: "512Mi"
+          limits:
+            cpu: 500m
+            memory: "1Gi"
         volumeMounts:
           - name: komodor-python-script
             mountPath: /usr/share/app/code.py

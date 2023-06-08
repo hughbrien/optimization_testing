@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: catalog-service
   namespace: optimization-testing
   annotations:
     app.komodor.com/service.link.webhook: http://35.202.170.30:5000/version
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/deploy.link.webhook: http://TBD/version
+    app.komodor.com/deploy.link.webhook: http://35.202.170.30:5000/version
     app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/d7726b24c32668fe10b545f378056ef5aa8dc025
     app.komodor.com/tracked_files: |
       *.yaml
@@ -15,7 +15,7 @@ metadata:
     app.komodor.com/app.ref: d7726b24c32668fe10b545f378056ef5aa8dc025
 
   labels:
-    app: frontend
+    app: catalog-service
     branch: main
     version: 2.1.1
     author: hughbrien
@@ -25,12 +25,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: catalog-service
   replicas: 1
   template:
     metadata:
       labels:
-        app: frontend
+        app: catalog-service
         branch: main
         version: 2.1.1
     spec:
