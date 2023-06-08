@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: frontend
+  annotations:
+    app.komodor.com/service.link.webhook: http://35.202.170.30:5000/version
+    app.komodor.com/service.link.github: https://github.com/hughbrien/frontend
+    app.komodor.com/deploy.link.github: https://github.com/hughbrien/frontend
+    app.komodor.com/deploy.link.webhook: http://35.202.170.30:5000/version
+    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/frontend/commit/0eeaf47a1f14973d5076c84a4d7d637dd667e11c
+    app.komodor.com/tracked_files: |
+      *.yaml
+    app.komodor.com/app: https://github.com/hughbrien/frontend
+    app.komodor.com/app.ref: 0eeaf47a1f14973d5076c84a4d7d637dd667e11c
+
+
+  labels:
+    app: frontend
+    branch: main
+    version: 2.1.1
+    author: hughbrien
+    notes: 2.1.1
+    owner: hughbrien
+
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+        branch: main
+        version: 2.1.1
+    spec:
+      containers:
+      - name: frontend
+        image: docker.io/hughbrien/frontend:2.1.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        securityContext:
+          allowPrivilegeEscalation: false
+        livenessProbe:
+          httpGet:
+            path: /healthz/live
+            port: 5000
+          initialDelaySeconds: 30
+          timeoutSeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /healthz/ready
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 60
+        resources:
+          limits:
+            cpu: 750m
+            ephemeral-storage: 1Gi
+            memory: 1Gi
+          requests:
+            cpu: 250m
+            ephemeral-storage: 2Gi
+            memory: 256Mi
