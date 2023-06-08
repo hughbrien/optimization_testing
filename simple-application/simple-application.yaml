@@ -3,99 +3,39 @@ kind: Namespace
 metadata:
   name: optimization-single-application
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  namespace: optimization-single-application
-  name: komodor-python-script
-data:
-  python-script: |-
-    import time
-    import os
-    import sys
-    import logging
-    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-    
-    GLOBAL_VARIABLE = []
-
-    exit_code = int(os.getenv('EXIT_CODE')) if os.getenv('EXIT_CODE') else 0
-
-    def start_service():
-        initialize_connections()
-
-    def initialize_connections():
-        fetch_configuration()
-
-    def fetch_configuration():
-        create_connection()
-
-    def create_connection():
-        conn_auth()
-
-    def conn_auth():
-      if exit_code == 0:
-        logging.info("connection established")
-      else:
-        raise Exception("Can't perform the requested task - authentication error")
-
-    def prealloc_array_by_appending():
-        size = 1000001
-        result = []
-        for i in range(size):
-            item_value = "Hugh Brien LARGE BLOCKS OF TEXT THAT 444332222 MAY NOT BE OPTIMIZED xmcmcmcjeodkaadalsdfjiri594844321223449686857474747 " + str(i)
-            print(item_value)
-            result.append(None)
-            result.append(item_value)
-
-    start_service()
-    while True:
-        logging.info("service loop")
-        GLOBAL_VARIABLE = prealloc_array_by_appending()
-        time.sleep(10)
-
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: webscale-legacy
   namespace: optimization-single-application
   annotations:
-    app: simple-application
+    app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/d7726b24c32668fe10b545f378056ef5aa8dc025
+    app.komodor.com/tracked_files: |
+      *.yaml
+    app.komodor.com/app: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/app.ref: d7726b24c32668fe10b545f378056ef5aa8dc025
+
   labels:
-    app: simple-application
-  name: simple-application
+    app: webscale-legacy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-application
+      app: webscale-legacy
   template:
     metadata:
       labels:
-        app: simple-application
+        app: webscale-legacy
     spec:
       containers:
-      - env:
-        - name: LOG_LEVEL
-          value: "INFO"
-        - name: EXIT_CODE
-          value: "0"
-        image: python:3.11-alpine
-        name: python
-        command: ["python"]
-        args: ["/usr/share/app/code.py"]
+      - name: komodor-oomkilled
+        image: polinux/stress
+        command: ["/bin/sh", "-c"]
+        args: ["echo 'Going to allocate 100MB of memory!' ; echo 'Going to allocate 100MB of memory!' ; echo 'Going to allocate 100MB of memory!' ; stress --vm 2 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"]
         resources:
           requests:
-            cpu: 500m
-            memory: "256Mi"
+            memory: "40Mi"
           limits:
-            cpu: 1000m
-            memory: "512Mi"
-        volumeMounts:
-          - name: komodor-python-script
-            mountPath: /usr/share/app/code.py
-            subPath: python-script
-      volumes:
-      - name: komodor-python-script
-        configMap:
-          name: komodor-python-script
+            memory: "150Mi"

@@ -22,3 +22,13 @@ helm install metrics-server metrics-server/metrics-server
 kubectl delete serviceaccount -n kube-system kubernetes-dashboard
 
 kind create cluster --name customer-demo-test --config cluster-config.yaml
+kind delete  cluster --name  customer-demo-test
+
+```
+stress --verbose --cpu 1 --io 1 --vm 5 --vm-bytes 40MB --timeout 15
+
+echo 'Going to allocate 60MB of memory!' ;
+stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose";
+
+```
+stress --vm 2 --vm-bytes 30M --vm-hang 10 --backoff 10000000 --verbose";
