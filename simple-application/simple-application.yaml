@@ -9,6 +9,8 @@ data:
     import sys
     import logging
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+    
+    GLOBAL_VARIABLE = []
 
     exit_code = int(os.getenv('EXIT_CODE')) if os.getenv('EXIT_CODE') else 0
 
@@ -30,29 +32,41 @@ data:
       else:
         raise Exception("Can't perform the requested task - authentication error")
 
+      def prealloc_array_by_appending():
+          size = 50000000
+          result = []
+          for i in range(size):
+              item_value = "Hugh Brien LARGE BLOCKS OF TEXT THAT 444332222 MAY NOT BE OPTIMIZED xmcmcmcjeodkaadalsdfjiri594844321223449686857474747 " + str(i)
+              print(item_value)
+              result.append(None)
+              result.append(item_value)
+
     time.sleep(10)
     start_service()
     while True:
         logging.info("service loop")
+        GLOBAL_VARIABLE = prealloc_array_by_appending()
         time.sleep(10)
+
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app: komo-application-error
+    app: simple-application
   labels:
-    app: komo-application-error
-  name: komo-application-error
+    app: simple-application
+  name: simple-application
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: komo-application-error
+      app: simple-application
   template:
     metadata:
       labels:
-        app: komo-application-error
+        app: simple-application
     spec:
       containers:
       - env:
@@ -64,6 +78,11 @@ spec:
         name: python
         command: ["python"]
         args: ["/usr/share/app/code.py"]
+        resources:
+          requests:
+            memory: "100Mi"
+          limits:
+            memory: "200Mi"
         volumeMounts:
           - name: komodor-python-script
             mountPath: /usr/share/app/code.py
