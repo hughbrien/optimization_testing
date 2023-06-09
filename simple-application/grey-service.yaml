@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grey-service
+  namespace: optimization-single-application
+  annotations:
+    app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
+
+  labels:
+    app: grey-service
+    feature: cost-optimization
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grey-service
+  template:
+    metadata:
+      labels:
+        app: grey-service
+    spec:
+      containers:
+      - name: komodor-oomkilled
+        image: polinux/stress
+        command: ["/bin/sh", "-c"]
+        args: ["echo 'Going to allocate 100MB of memory!' ; stress --cpu 2 --vm 2 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"]
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "55Mi"
+          limits:
+            cpu: "200m"
+            memory: "110Mi"
+        livenessProbe:
+          exec:
+            command:
+              - ls
+              - /tmp
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+              - ls
+              - /tmp
+          initialDelaySeconds: 5
+          periodSeconds: 5
