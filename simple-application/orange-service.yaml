@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blue-service
+  name: orange-service
   namespace: optimization-single-application
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing

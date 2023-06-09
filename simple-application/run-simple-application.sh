@@ -2,11 +2,13 @@ kubectl create ns optimization-single-application
 
 kubectl apply -f ./namespace-limit-range.yaml --namespace=optimization-single-application
 
-
 kubectl apply  -f simple-application.yaml
 kubectl apply  -f red-service.yaml
 kubectl apply  -f yellow-service.yaml
+kubectl apply  -f orange-service.yaml
 kubectl apply  -f green-service.yaml
+kubectl apply  -f blue-service.yaml
+
 
 
 #kubectl describe limits simple-application -- $NAMESPACE
