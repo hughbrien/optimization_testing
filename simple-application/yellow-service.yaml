@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webscale-legacy
+  name: yellow-service
   namespace: optimization-single-application
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
@@ -13,16 +13,17 @@ metadata:
     app.komodor.com/app.ref: d7726b24c32668fe10b545f378056ef5aa8dc025
 
   labels:
-    app: webscale-legacy
+    app: yellow-service
+    feature: cost-optimization
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: webscale-legacy
+      app: yellow-service
   template:
     metadata:
       labels:
-        app: webscale-legacy
+        app: yellow-service
     spec:
       containers:
       - name: komodor-oomkilled
@@ -31,6 +32,6 @@ spec:
         args: ["echo 'Going to allocate 100MB of memory!' ; stress --vm 2 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"]
         resources:
           requests:
-            memory: "40Mi"
+            memory: "110Mi"
           limits:
-            memory: "150Mi"
+            memory: "200M"

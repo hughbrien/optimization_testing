@@ -31,4 +31,12 @@ echo 'Going to allocate 60MB of memory!' ;
 stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose";
 
 ```
-stress --vm 2 --vm-bytes 30M --vm-hang 10 --backoff 10000000 --verbose";
+stress --vm 5 --vm-bytes 30M --vm-hang 10 --backoff 10000000 --verbose";
+
+stress -vm 4 --vm-bytes 64MB --vm-hang 15 --backoff 5000
+
+-m, --vm 2         spawn N workers spinning on malloc()/free()
+     --vm-bytes 64MB   malloc B bytes per vm worker (default is 256MB)
+     --vm-stride   touch a byte every B bytes (default is 4096)
+     --vm-hang 15    sleep N secs before free (default none, 0 is inf)
+     --vm-keep      redirty memory instead of freeing and reallocating
