@@ -8,7 +8,7 @@ Content-Type: application/json
 
 {
   "eventType": "Best Practices Update",
-  "summary": "Best Practices Updated -  LiveNess and Readiness Probes Enabled",
+  "summary": "Best Practices Updated - Replica Count is Greater than ONE",
   "severity": "warning",
   "scope": {
     "clusters":["hpbx-mac-cluster"],
@@ -16,9 +16,8 @@ Content-Type: application/json
     "namespaces":["optimization-colors-applications"]
   },
   "details": {
-    "liveness": "ENABLED",
-    "readiness": "ENABLED",
-    "liveness_type": "process - ls /tmp",
-    "readiness_type": "process - ls /tmp"
+    "replicas": "GREATER_THAN_ONE",
+    "replicas-count": "2"
+
   }
 }

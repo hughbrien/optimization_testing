@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orange-service
-  namespace: optimization-single-application
+  namespace: optimization-colors-applications
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
@@ -34,4 +34,4 @@ spec:
           requests:
             memory: "55Mi"
           limits:
-            memory: "110Mi"
+            memory: "120Mi"

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yellow-service
-  namespace: optimization-single-application
+  namespace: optimization-colors-applications
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
@@ -29,9 +29,9 @@ spec:
       - name: komodor-oomkilled
         image: polinux/stress
         command: ["/bin/sh", "-c"]
-        args: ["echo 'Going to allocate 100MB of memory!' ; stress --vm 2 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"]
+        args: ["echo 'Going to allocate 100MB of memory!' ; stress --cpu 2 --vm 2 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"]
         resources:
           requests:
             memory: "110Mi"
           limits:
-            memory: "200Mi"
+            memory: "125Mi"

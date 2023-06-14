@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grey-service
-  namespace: optimization-single-application
+  namespace: optimization-colors-applications
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
@@ -31,18 +31,4 @@ spec:
             memory: "55Mi"
           limits:
             cpu: "200m"
-            memory: "110Mi"
-        livenessProbe:
-          exec:
-            command:
-              - ls
-              - /tmp
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        readinessProbe:
-          exec:
-            command:
-              - ls
-              - /tmp
-          initialDelaySeconds: 5
-          periodSeconds: 5
+            memory: "150Mi"
