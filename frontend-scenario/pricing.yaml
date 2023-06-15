@@ -3,24 +3,14 @@ kind: Deployment
 metadata:
   name: pricing-service
   annotations:
-    app.komodor.com/service.link.webhook: http://35.202.170.30:5000/version
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/deploy.link.webhook: http://35.202.170.30:5000/version
-    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/d7726b24c32668fe10b545f378056ef5aa8dc025
-    app.komodor.com/tracked_files: |
-      *.yaml
-    app.komodor.com/app: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/app.ref: d7726b24c32668fe10b545f378056ef5aa8dc025
-
   labels:
     app: pricing-service
     branch: main
     version: 2.1.1
     author: hughbrien
-    notes: 2.1.1
-    owner: hughbrien
-
+    withExtraSecurity: ENABLED
 spec:
   selector:
     matchLabels:
@@ -41,6 +31,9 @@ spec:
         - containerPort: 5000
         securityContext:
           allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
         livenessProbe:
           httpGet:
             path: /healthz/live
@@ -54,9 +47,10 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 60
         resources:
-          limits:
-            cpu: 500m
-            memory: 500Mi
           requests:
-            cpu: 250m
-            memory: 256Mi
+            cpu: 500m
+            memory: 100Mi
+          limits:
+            cpu: 750m
+            memory: 200Mi
+
