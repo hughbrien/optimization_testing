@@ -1,5 +1,5 @@
 #!/bin/sh
-COUNT=10
+COUNT=3
 echo "Creating $COUNT namespace with four services"
 namespace_value="demo-service-collection"
 for index in $(seq 1 $COUNT)

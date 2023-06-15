@@ -17,6 +17,12 @@ spec:
       containers:
       - name: komodor-oomkilled
         image: polinux/stress
+        securityContext:
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
         command: ["/bin/sh", "-c"]
         args: ["echo 'Going to allocate 100MB of memory!'; stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose"]
         resources:

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-COUNT=10
+COUNT=3
 namespace_value="demo-service-collection"
 echo "Deleting $COUNT namespaces "
 for index in $(seq 1 $COUNT)
