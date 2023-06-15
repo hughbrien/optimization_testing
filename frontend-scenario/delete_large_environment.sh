@@ -1,7 +1,8 @@
 #!/bin/sh
 
+
 namespace_value="demo-service-collection"
-for index in $(seq 1 4)
+for index in $(seq 1 10)
 do
   echo "The number is $index ..."
   echo "Now running the ab command $index times ..."
