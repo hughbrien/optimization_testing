@@ -36,3 +36,12 @@ spec:
             memory: "100Mi"
           limits:
             memory: "110Mi"
+        securityContext:
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
