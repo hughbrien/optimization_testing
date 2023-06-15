@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pricing-service
-  namespace: optimization-testing
   annotations:
     app.komodor.com/service.link.webhook: http://35.202.170.30:5000/version
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
