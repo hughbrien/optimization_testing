@@ -1,12 +1,11 @@
 #!/bin/sh
-
+COUNT=10
+echo "Creating $COUNT namespace with four services"
 namespace_value="demo-service-collection"
-for index in $(seq 1 10)
+for index in $(seq 1 $COUNT)
 do
-  echo "The number is $index ..."
-  echo "Now running the ab command $index times ..."
   new_namespace_value="${namespace_value}-${index}"
-  echo ${new_namespace_value}
+  echo "Creating ${new_namespace_value}"
   kubectl create ns $new_namespace_value
   kubectl apply -f frontend.yaml -n $new_namespace_value
   kubectl apply -f catalog.yaml -n $new_namespace_value
