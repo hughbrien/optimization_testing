@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: green-service
-  namespace: optimization-colors-applications
+  namespace: color-optimize
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
@@ -30,8 +30,4 @@ spec:
         image: polinux/stress
         command: ["/bin/sh", "-c"]
         args: ["echo 'Going to allocate 100MB of memory!' ; stress --vm 2 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"]
-        resources:
-          requests:
-            memory: "55Mi"
-          limits:
-            memory: "120Mi"
+

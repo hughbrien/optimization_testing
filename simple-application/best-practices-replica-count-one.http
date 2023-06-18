@@ -13,7 +13,7 @@ Content-Type: application/json
   "scope": {
     "clusters":["hpbx-mac-cluster"],
     "serviceNames":["grey-service"],
-    "namespaces":["optimization-colors-applications"]
+    "namespaces":["color-optimize"]
   },
   "details": {
     "replicas": "ONE",

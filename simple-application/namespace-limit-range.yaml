@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: LimitRange
 metadata:
-  name: optimization-colors-applications-limit
+  name: color-optimize-limit
 spec:
   limits:
   - max:

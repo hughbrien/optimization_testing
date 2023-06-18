@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: red-service
-  namespace: optimization-colors-applications
+  namespace: color-optimize
 
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
