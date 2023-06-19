@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping-service
+  labels:
+    app: shipping-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping-service
+  template:
+    metadata:
+      labels:
+        app: shipping-service
+    spec:
+      containers:
+      - name: komodor-oomkilled
+        image: polinux/stress
+        command: ["/bin/sh", "-c"]
+        args: ["echo 'Going to allocate 100MB of memory!'; stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose"]
+        imagePullPolicy: IfNotPresent
+      securityContext:
+        runAsNonRoot: false
