@@ -5,6 +5,7 @@ metadata:
   labels:
     app: shipping-service
 spec:
+  #Added Two Replicas
   replicas: 2
   selector:
     matchLabels:
@@ -16,8 +17,12 @@ spec:
     spec:
       containers:
       - name: komodor-oomkilled
+        #Ensure there is a VERSION on the Image Tag. Not Latest or Emtpy
         image: polinux/stress:1.0.4
+        #Set ImagePull to Always
         imagePullPolicy: Always
+        # Ensure Security Context Exists and has a minimum configurtion. No running Containers as ROOT
+        # Ensure Correct Security Context
         securityContext:
           runAsUser: 1000
           allowPrivilegeEscalation: false
@@ -29,6 +34,7 @@ spec:
             type: RuntimeDefault
         command: ["/bin/sh", "-c"]
         args: ["echo 'Going to allocate 100MB of memory!'; stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose"]
+        # Ensure Limits are Set
         resources:
           requests:
             memory: "40Mi"
@@ -36,6 +42,7 @@ spec:
           limits:
             memory: "100Mi"
             cpu: 500m
+        # Install Liveness and Readiness Probes
         livenessProbe:
           initialDelaySeconds: 1
           periodSeconds: 5
