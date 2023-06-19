@@ -4,6 +4,8 @@ metadata:
   name: shipping-service
   labels:
     app: shipping-service
+    project: improve-service
+
 spec:
   #Added Two Replicas
   replicas: 2
@@ -42,7 +44,7 @@ spec:
           limits:
             memory: "100Mi"
             cpu: 500m
-        # Install Liveness and Readiness Probes
+        # Install Liveness
         livenessProbe:
           initialDelaySeconds: 1
           periodSeconds: 5
@@ -53,6 +55,7 @@ spec:
             command:
               - ls
               - /tmp
+        # Install Readiness Probes
         readinessProbe:
           exec:
             command:

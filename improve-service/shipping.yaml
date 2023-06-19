@@ -4,6 +4,8 @@ metadata:
   name: shipping-service
   labels:
     app: shipping-service
+    project: improve-service
+
 spec:
   replicas: 1
   selector:
