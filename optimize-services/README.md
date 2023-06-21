@@ -2,7 +2,7 @@
 
 Migrate from Not Optimized to 100% Optimized 
 
-- cblue
+- blue
 - green 
 - grey
 - orange
