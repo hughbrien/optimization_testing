@@ -9,8 +9,11 @@
 ```% kubectl apply -f  https://raw.githubusercontent.com/hughbrien/optimization_testing/main/improve-service/shipping.yaml -n improve-service```   
 
 - Check the [Click the URL of Service](https://app.komodor.com/main/events?sortBy=%7B%22key%22%3A%22endtime%22%2C%22direction%22%3A-1%7D&filters=%7B%7D&timeWindow=168)
-and select Info Tab 
+and select Info Tab
+
 - Review the Best Practices 
+
+![image](./images/shipping-before.jpg)
 
 
 Now run
@@ -21,3 +24,5 @@ Now run
 - Check the [Click the URL of Service](https://app.komodor.com/main/events?sortBy=%7B%22key%22%3A%22endtime%22%2C%22direction%22%3A-1%7D&filters=%7B%7D&timeWindow=168)
 and select Info Tab 
 - Review the Best Practices 
+
+![image](./images/shipping-after.jpg)
