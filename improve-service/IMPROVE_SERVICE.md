@@ -34,6 +34,7 @@ and select Info Tab
 
 ![image](./images/shipping-after.jpg)
 
+## Compare the Changes Before and After 
 
 ![image](./images/diffs.jpg)
 
