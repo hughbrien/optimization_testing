@@ -3,6 +3,15 @@ kind: ConfigMap
 metadata:
   name: cpu-memory-settings
   namespace: color-optimize
+  annotations:
+    app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/c627e42195dabe553bd2ae65df0a4b7dba52f457
+    app.komodor.com/tracked_files: |
+      *.yaml
+    app.komodor.com/app: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/app.ref: c627e42195dabe553bd2ae65df0a4b7dba52f457
+
 #None of these values do anything
 data:
   blue-args:   "stress --cpu 1 --vm 1 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"
