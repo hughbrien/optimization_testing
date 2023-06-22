@@ -4,6 +4,13 @@ metadata:
   name: shipping-service
   labels:
     app: shipping-service
+  annotations:
+    app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/tracked_files: |
+      *.yaml
+    app.komodor.com/app: https://github.com/hughbrien/optimization_testing
+    app.komodor.com/app.ref: ba3ad0f84aaf21e0b981a722591efae5c3938865
 spec:
   replicas: 2
   selector:
