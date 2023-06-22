@@ -19,7 +19,6 @@ spec:
         image: polinux/stress:1.0.4
         imagePullPolicy: Always
         securityContext:
-          runAsUser: 1000
           allowPrivilegeEscalation: false
           capabilities:
             drop:
