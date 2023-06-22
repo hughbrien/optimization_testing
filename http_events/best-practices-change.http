@@ -7,8 +7,8 @@ x-api-key: 21527fbe-3fda-4080-b3ec-931a81a361ba
 Content-Type: application/json
 
 {
-  "eventType": "Best Practices Update",
-  "summary": "Best Practices Updated -  LiveNess and Readiness Probes Enabled",
+  "eventType": "Opitimziation Testing is Started",
+  "summary": "Opitimziation Testing is Started. Creating six services that are color coded",
   "severity": "warning",
   "scope": {
     "clusters":["hpbx-mac-cluster"],
