@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cpu-memory-settings
+  namespace: color-optimize
+#None of these values do anything
+data:
+  blue-args:   "stress --cpu 1 --vm 1 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"
+  green-args:  "stress --cpu 2 --vm 2 --vm-bytes 100M --vm-hang 60 --backoff 10000000 --verbose"
+  grey-args:   "stress --cpu 3 --vm 3 --vm-bytes 200M --vm-hang 60 --backoff 10000000 --verbose"
+  orange-args: "stress --cpu 3 --vm 3 --vm-bytes 200M --vm-hang 60 --backoff 10000000 --verbose"
+  red-args:    "stress --cpu 2 --vm 2 --vm-bytes 100M --vm-hang 60 --backoff 10000000 --verbose"
+  yellow-args: "stress --cpu 1 --vm 1 --vm-bytes 50M --vm-hang 60 --backoff 10000000 --verbose"
