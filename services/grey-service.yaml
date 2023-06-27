@@ -27,11 +27,11 @@ spec:
         args: [$(CMD_ARGS)]
         resources:
           requests:
-            cpu: 1000m
-            memory: "256Mi"
+            cpu: 500m
+            memory: "128Mi"
           limits:
             cpu: 1000m
-            memory: "512Mi"
+            memory: "128Mi"
         securityContext:
           runAsUser: 1000
           allowPrivilegeEscalation: false

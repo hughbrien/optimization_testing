@@ -33,10 +33,10 @@ spec:
         args: [$(CMD_ARGS)]
         resources:
           requests:
-            memory: "200Mi"
-            cpu: 1000m
+            memory: "128Mi"
+            cpu: 500m
           limits:
-            memory: "200Mi"
+            memory: "128Mi"
             cpu: 1000m
         securityContext:
           runAsUser: 1000
