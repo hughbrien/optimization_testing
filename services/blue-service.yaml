@@ -32,11 +32,11 @@ spec:
         args: [$(CMD_ARGS)]
         resources:
           requests:
-            cpu: 500m
-            memory: "128Mi"
+            cpu: $(CPU)
+            memory: $(MEMORY)
           limits:
             cpu: 1000m
-            memory: "128Mi"
+            memory: 256Mi
         securityContext:
           runAsUser: 1000
           allowPrivilegeEscalation: false
@@ -52,3 +52,13 @@ spec:
             configMapKeyRef:
               name: cpu-memory-settings
               key: blue-args
+        - name: CPU
+          valueFrom:
+            configMapKeyRef:
+              name: cpu-memory-settings
+              key: blue-cpu
+        - name: MEMORY
+          valueFrom:
+            configMapKeyRef:
+              name: cpu-memory-settings
+              key: blue-memory

@@ -33,10 +33,10 @@ spec:
         args: [$(CMD_ARGS)]
         resources:
           requests:
-            memory: "200Mi"
-            cpu: 1000m
+            cpu: $(CPU)
+            memory: "$(MEMORY)"
           limits:
-            memory: "200Mi"
+            memory: "256Mi"
             cpu: 1000m
         securityContext:
           runAsUser: 1000
@@ -53,3 +53,13 @@ spec:
               configMapKeyRef:
                 name: cpu-memory-settings
                 key: red-args
+          - name: CPU
+            valueFrom:
+              configMapKeyRef:
+                name: cpu-memory-settings
+                key: red-memory
+          - name: MEMORY
+            valueFrom:
+              configMapKeyRef:
+                name: cpu-memory-settings
+                key: red-cpu

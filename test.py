@@ -8,7 +8,7 @@ def prealloc_array_by_appending():
     result = []
     for i in range(size):
         item_value = "Hugh Brien LARGE BLOCKS OF TEXT THAT 444332222 MAY NOT BE OPTIMIZED xmcmcmcjeodkaadalsdfjiri594844321223449686857474747 " + str(i)
-        print(item_value)
+        #print(item_value)
         result.append(None)
         result.append(item_value)
 
