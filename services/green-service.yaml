@@ -36,7 +36,7 @@ spec:
             memory: "128Mi"
           limits:
             cpu: 1000m
-            memory: "128Mi"
+            memory: "256Mi"
         securityContext:
           runAsUser: 1000
           allowPrivilegeEscalation: false
@@ -52,3 +52,21 @@ spec:
               configMapKeyRef:
                 name: cpu-memory-settings
                 key: green-args
+        livenessProbe:
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 1
+          exec:
+            command:
+              - ls
+              - /tmp
+        # Install Readiness Probes
+        readinessProbe:
+          exec:
+            command:
+              - ls
+              - /tmp
+          initialDelaySeconds: 5
+          periodSeconds: 5

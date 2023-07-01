@@ -30,13 +30,6 @@ spec:
         image: polinux/stress
         command: ["/bin/sh", "-c"]
         args: [$(CMD_ARGS)]
-        resources:
-          requests:
-            cpu: 500m
-            memory: "128Mi"
-          limits:
-            cpu: 1000m
-            memory: "128Mi"
         securityContext:
           runAsUser: 1000
           allowPrivilegeEscalation: false
@@ -52,3 +45,21 @@ spec:
             configMapKeyRef:
               name: cpu-memory-settings
               key: blue-args
+        livenessProbe:
+          initialDelaySeconds: 1
+          periodSeconds: 5
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 1
+          exec:
+            command:
+              - ls
+              - /tmp
+        # Install Readiness Probes
+        readinessProbe:
+          exec:
+            command:
+              - ls
+              - /tmp
+          initialDelaySeconds: 5
+          periodSeconds: 5
