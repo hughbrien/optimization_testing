@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: grey-service
+          app: grey-service
     spec:
       containers:
       - name: komodor-oomkilled
@@ -42,7 +42,7 @@ spec:
                 key: grey-args
         livenessProbe:
           initialDelaySeconds: 1
-          periodSeconds: 5
+          periodSeconds: 10
           timeoutSeconds: 1
           successThreshold: 1
           failureThreshold: 1

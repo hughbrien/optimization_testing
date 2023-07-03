@@ -6,11 +6,11 @@ metadata:
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/d2983e7615f45fee8e389fb60d902e9b8bec602d
+    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/3016b79ee385c6427de96c55a6572b3e763b6d6a
     app.komodor.com/tracked_files: |
       *.yaml
     app.komodor.com/app: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/app.ref: d2983e7615f45fee8e389fb60d902e9b8bec602d
+    app.komodor.com/app.ref: 3016b79ee385c6427de96c55a6572b3e763b6d6a
 
   labels:
     app: orange-service
@@ -32,7 +32,7 @@ spec:
         args: [$(CMD_ARGS)]
         resources:
           limits:
-            memory: "256Mi"
+            memory: "1024Mi"
             cpu: 1000m
         securityContext:
           runAsUser: 1000

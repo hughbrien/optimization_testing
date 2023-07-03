@@ -6,17 +6,17 @@ metadata:
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/c627e42195dabe553bd2ae65df0a4b7dba52f457
+    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/3016b79ee385c6427de96c55a6572b3e763b6d6a
     app.komodor.com/tracked_files: |
       *.yaml
     app.komodor.com/app: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/app.ref: c627e42195dabe553bd2ae65df0a4b7dba52f457
+    app.komodor.com/app.ref: 3016b79ee385c6427de96c55a6572b3e763b6d6a
 
 #None of these values do anything
 data:
-  blue-args:   "stress --cpu 1 --vm 1 --vm-bytes 64M --vm-hang 60 --backoff 10000000 --verbose"
-  green-args:  "stress --cpu 1 --vm 1 --vm-bytes 64M --vm-hang 60 --backoff 10000000 --verbose"
-  grey-args:   "stress --cpu 1 --vm 1 --vm-bytes 64M --vm-hang 60 --backoff 10000000 --verbose"
-  orange-args: "stress --cpu 1 --vm 1 --vm-bytes 64M --vm-hang 60 --backoff 10000000 --verbose"
-  red-args:    "stress  --vm 2 --vm-bytes 128M --vm-hang 60 --backoff 10000000 --verbose"
+  blue-args:   "stress --cpu 1 --vm 1 --vm-bytes 128M --vm-hang 60 --backoff 10000000 --verbose"
+  green-args:  "stress --cpu 1 --vm 1 --vm-bytes 128M --vm-hang 60 --backoff 10000000 --verbose"
+  grey-args:   "stress --cpu 1 --vm 1 --vm-bytes 128M --vm-hang 60 --backoff 10000000 --verbose"
+  orange-args: "stress  --vm 2 --vm-bytes 1024M --vm-hang 60 --backoff 10000000 --verbose"
+  red-args:    "stress  --vm 2 --vm-bytes 512M --vm-hang 60 --backoff 10000000 --verbose"
   yellow-args: "stress  --vm 2 --vm-bytes 256M --vm-hang 60 --backoff 10000000 --verbose"
