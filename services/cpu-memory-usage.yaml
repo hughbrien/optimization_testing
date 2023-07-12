@@ -6,11 +6,11 @@ metadata:
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/1466d6a9c2055394d01aeefb2b9375a2d49fff9a
+    app.komodor.com/deploy.link.github-latestchange: https://github.com/hughbrien/optimization_testing/commit/1b890cbd2136cb0616e9649b79a90da1f40f632c
     app.komodor.com/tracked_files: |
       *.yaml
     app.komodor.com/app: https://github.com/hughbrien/optimization_testing
-    app.komodor.com/app.ref: 1466d6a9c2055394d01aeefb2b9375a2d49fff9a
+    app.komodor.com/app.ref: 1b890cbd2136cb0616e9649b79a90da1f40f632c
 
 #None of these values do anything
 data:

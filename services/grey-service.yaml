@@ -25,6 +25,13 @@ spec:
         image: polinux/stress
         command: ["/bin/sh", "-c"]
         args: [$(CMD_ARGS)]
+        resources:
+          requests:
+            memory: "1024Mi"
+            cpu: 500m
+          limits:
+            memory: "2048Mi"
+            cpu: 1000m
         securityContext:
           runAsUser: 1000
           allowPrivilegeEscalation: false
