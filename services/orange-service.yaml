@@ -44,7 +44,7 @@ spec:
           seccompProfile:
             type: RuntimeDefault
         env:
-            - name: CMD_ARGS
+          - name: CMD_ARGS
             valueFrom:
               configMapKeyRef:
                 name: cpu-memory-settings
