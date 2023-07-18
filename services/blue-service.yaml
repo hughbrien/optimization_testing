@@ -29,13 +29,13 @@ spec:
       - name: komodor-oomkilled
         image: polinux/stress
         command: ["/bin/sh", "-c"]
-        args: ["stress --cpu 1 --vm 1 --vm-bytes 100M --vm-hang 60 --backoff 10000000 --verbose"]
+        args: ["stress --vm 4 --vm-bytes 256M --vm-hang 60 --backoff 10000000 --verbose"]
         resources:
           requests:
             memory: "128Mi"
             cpu: 500m
           limits:
-            memory: "256Mi"
+            memory: "2048Mi"
             cpu: 750m
         securityContext:
           runAsUser: 1000
