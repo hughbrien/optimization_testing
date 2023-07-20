@@ -3,6 +3,10 @@ kind: ConfigMap
 metadata:
   name: cpu-memory-settings
   namespace: color-optimize
+  labels:
+    app: blue-service
+    feature: cost-optimization
+    cluster: hpbx-mac-cluster
   annotations:
     app.komodor.com/service.link.github: https://github.com/hughbrien/optimization_testing
     app.komodor.com/deploy.link.github: https://github.com/hughbrien/optimization_testing

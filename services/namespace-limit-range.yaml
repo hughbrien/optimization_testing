@@ -2,6 +2,10 @@ apiVersion: v1
 kind: LimitRange
 metadata:
   name: color-optimize-limit
+  labels:
+    cluster: hpbx-mac-cluster
+    feature: cost-optimization
+
 spec:
   limits:
   - max:
